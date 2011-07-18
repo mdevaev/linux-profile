@@ -1,1 +1,9 @@
-*.swp
+/*
+!/.gitignore
+!/.gitconfig
+!/.kde4/
+!/.vim/
+!/.vimrc
+!/.bashrc
+!/.conkyrc
+!/.nightchildren.jpg

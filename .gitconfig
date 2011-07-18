@@ -1,0 +1,13 @@
+[color]
+	diff = no
+	status = auto
+	branch = auto
+[core]
+	editor = vim
+	pager = vim -
+	excludesfile = /home/mdevaev/.gitignore
+[user]
+	name = Devaev Maxim
+	email = mdevaev@yandex-team.ru
+[merge]
+	tool = meld
