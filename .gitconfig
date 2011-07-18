@@ -8,6 +8,6 @@
 	excludesfile = /home/mdevaev/.gitignore
 [user]
 	name = Devaev Maxim
-	email = mdevaev@yandex-team.ru
+	email = mdevaev@gmail.com
 [merge]
 	tool = meld
