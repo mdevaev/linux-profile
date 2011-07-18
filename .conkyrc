@@ -1,0 +1,87 @@
+# set to yes if you want Conky to be forked in the background
+background yes
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+out_to_console no
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+xftfont Sans:bold:size=7
+
+# Text alpha when using Xft
+xftalpha 0.8
+
+# Create own window instead of drawing to desktop.
+own_window yes
+own_window_transparent yes
+own_window_type dock
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Update interval in seconds
+update_interval 3
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+#minimum_size 1280 800
+#minimum_size 1000 25
+#maximim_size 1000 25
+#maximum_height 25
+#minimum_width 1000
+minimum_size 1366 25
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+#stippled_borders 2
+
+# border width
+#border_width 1
+
+# Default colors and also border colors
+default_color black
+default_shade_color white
+default_outline_color black
+
+# Orientation
+#gap_x 330
+#gap_y 1
+#gap_x 0
+#gap_y 10
+#gap_x 300
+#gap_y 650
+alignment top_left
+#alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+gap_y 734
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer yes
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# drawn 1 pixel border around graphs or not
+draw_graph_borders yes
+
+# 717583
+TEXT
+${color FFFFFF}
+${goto 200}CPU: ${goto 245}${cpu}%${goto 280}${cpubar 8,100} ${goto 390} RAM: ${goto 435}${memperc}%${goto 470}${membar 8,100} ${goto 580} HDD: ${goto 615} ${diskio}${goto 665}${diskiograph 8,100 FFFFFF FFFFFF} ${goto 780} Speed: [ eth0: ${downspeed eth0}D/${upspeed eth0}U ] [ wlan0: ${downspeed wlan0}D/${upspeed wlan0}U ] [ wimax0: ${downspeed wimax0}D/${upspeed wimax0}U  ]
+${goto 200}P: ${processes}  R: ${running_processes}  A: ${loadavg 1} ${loadavg 2} ${loadavg 3} ${goto 390} SWP: ${goto 435}${swapperc}%${goto 470}${swapbar 8,100} ${goto 580} Bat: ${goto 615} ${battery_percent}%${goto 665}${battery_bar 8,100} ${goto 780} Bat Time: ${battery_time} ${goto 915} Wi-Fi: ${wireless_link_qual_perc wlan0}%${goto 995}${wireless_link_bar 8,100 wlan0}  [ ESSID: ${wireless_essid wlan0} ]
