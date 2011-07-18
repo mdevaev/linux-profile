@@ -14,6 +14,8 @@ alias ls='ls --color'
 alias la='ls -A'
 alias ll='ls -l --group-directories-first'
 
+alias mplayer='mplayer -vo gl_nos'
+
 complete -cf sudo
 
 bldred='\[\e[1;31m\]'  # Red
@@ -26,4 +28,3 @@ if [ "$UID" -eq "0" ]; then
 else
     PS1="[$bldcyn\u$txtrst@\h $bldblue\W$txtrst]\$ "
 fi
-
