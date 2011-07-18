@@ -36,6 +36,7 @@ set incsearch
 set ignorecase
 set wildmenu
 set wcm=<Tab>
+set nobackup
 autocmd BufEnter * lcd %:p:h " set autochdir
 set completeopt-=preview
 set completeopt+=longest
