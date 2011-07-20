@@ -29,9 +29,16 @@ color_user() {
 color_host() {
     [ -n "$SSH_CONNECTION" ] && echo "$bldgrn\h$txtrst" || echo "\h"
 }
+color_schroot() {
+    [ -n "$SCHROOT_CHROOT_NAME" ] && echo "($bldred$SCHROOT_CHROOT_NAME$txtrst)"
+}
 prompt() {
     [ "$UID" -eq 0 ] && echo "#" || echo "$"
 }
 
-PS1="[$(color_user)@$(color_host) $bldblue\W$txtrst]$(prompt) "
+PS1="[$(color_user)@$(color_host)$(color_schroot) $bldblue\W$txtrst]$(prompt) "
+
+
+export DEBFULLNAME="Devaev Maxim"
+export DEBMAIL="mdevaev@yandex-team.ru"
 
