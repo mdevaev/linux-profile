@@ -2,10 +2,12 @@
 # ~/.bashrc
 #
 
+export EDITOR=vim
+
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export EDITOR=vim
 
 eval `dircolors -b`
 alias grep='grep --color=auto'
@@ -15,6 +17,7 @@ alias ll='ls -l --group-directories-first'
 alias mplayer='mplayer -vo gl_nosw'
 
 complete -cf sudo
+complete -cd killall
 
 
 bldred='\[\e[1;31m\]'  # Red
@@ -36,9 +39,5 @@ prompt() {
     [ "$UID" -eq 0 ] && echo "#" || echo "$"
 }
 
-PS1="[$(color_user)@$(color_host)$(color_schroot) $bldblue\W$txtrst]$(prompt) "
-
-
-export DEBFULLNAME="Devaev Maxim"
-export DEBMAIL="mdevaev@yandex-team.ru"
+export PS1="[$(color_user)@$(color_host)$(color_schroot) $bldblue\W$txtrst]$(prompt) "
 
