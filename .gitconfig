@@ -1,13 +1,25 @@
 [color]
-	diff = no
-	status = auto
-	branch = auto
+    diff = no
+    status = auto
+    branch = auto
+
 [core]
-	editor = vim
-	pager = vim -
-	excludesfile = /home/mdevaev/.gitignore
+    editor = vim
+    pager = vim -
+    excludesfile = /home/mdevaev/.gitignore
+
 [user]
-	name = Devaev Maxim
-	email = mdevaev@gmail.com
+    name = Devaev Maxim
+    email = mdevaev@gmail.com
+
 [merge]
-	tool = meld
+    tool = meld
+
+[pkg]
+    default = lucid
+
+[pkg "lucid"]
+    schroot = ubuntu-lucid-amd64
+    type = deb
+    arch = amd64
+
