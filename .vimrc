@@ -28,6 +28,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+
 """ Common settings
 syntax on
 colorscheme evening
@@ -38,8 +39,12 @@ set wildmenu
 set wcm=<Tab>
 set nobackup
 autocmd BufEnter * lcd %:p:h " set autochdir
+
 set completeopt-=preview
 set completeopt+=longest
+
+set listchars=tab:»·,trail:·
+set list
 
 
 """ Keybindings
