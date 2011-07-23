@@ -24,9 +24,11 @@
 
 """ Indents
 set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+if getcwd() =~ "\/yandex"
+	set shiftwidth=4
+	set softtabstop=4
+	set expandtab
+endif
 
 
 """ Common settings
@@ -42,9 +44,6 @@ autocmd BufEnter * lcd %:p:h " set autochdir
 
 set completeopt-=preview
 set completeopt+=longest
-
-set listchars=tab:»·,trail:·
-set list
 
 
 """ Keybindings
@@ -101,11 +100,11 @@ function! InsertTabWrapper()
 		return "\<Tab>"
 	endif
 
-    if ( line =~ "\/" )
-        return "\<C-x>\<C-f>"
-    else
-        return "\<C-p>"
-    fi
+	if ( line =~ "\/" )
+		return "\<C-x>\<C-f>"
+	else
+		return "\<C-p>"
+	fi
 endfunction
 imap <Tab> <C-r>=InsertTabWrapper()<Cr>
 
