@@ -23,3 +23,6 @@
     type = deb
     arch = amd64
 
+[pkg "arch"]
+    type = arch
+
