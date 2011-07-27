@@ -14,7 +14,6 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -l --group-directories-first'
-alias mplayer='mplayer -vo gl_nosw'
 
 complete -cf sudo
 complete -cd killall
