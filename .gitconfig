@@ -6,7 +6,6 @@
 [core]
     editor = vim
     pager = vim -
-    excludesfile = /home/mdevaev/.gitignore
 
 [user]
     name = Devaev Maxim
@@ -14,9 +13,6 @@
 
 [merge]
     tool = meld
-
-[pkg]
-    default = lucid
 
 [pkg "lucid"]
     schroot = ubuntu-lucid-amd64
