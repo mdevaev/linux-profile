@@ -66,7 +66,7 @@ alignment top_left
 #alignment top_right
 #alignment bottom_left
 #alignment bottom_right
-gap_y 734
+gap_y 736
 
 # Add spaces to keep things from moving about?  This only affects certain objects.
 use_spacer yes
