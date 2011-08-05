@@ -18,7 +18,11 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -l --group-directories-first'
+
 alias mplayer='mplayer -lavdopts threads=4 -vo gl2:yuv=3 -framedrop -nodr -double'
+alias xrandr_dock='xrandr --output VGA1 --preferred -s 1600x1200 && xrandr --output LVDS1 --off'
+alias xrandr_free='xrandr --output LVDS1 --preferred -s 1366x768 && xrandr --output VGA1 --off'
+
 
 complete -cf sudo
 complete -cd killall
