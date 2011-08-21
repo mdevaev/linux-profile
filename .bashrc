@@ -23,6 +23,7 @@ alias mplayer='mplayer -lavdopts threads=4 -vo gl2:yuv=3 -framedrop -nodr -doubl
 alias xrandr_dock='xrandr --output VGA1 --preferred -s 1600x1200 && xrandr --output LVDS1 --off'
 alias xrandr_free='xrandr --output LVDS1 --preferred -s 1366x768 && xrandr --output VGA1 --off'
 
+alias steam='pushd ~/.wine/drive_c/Program\ Files/Steam; LIBGL_DRIVERS_PATH=/usr/lib32/xorg/modules/dri WINEARCH=win32 wine Steam.exe; popd'
 
 complete -cf sudo
 complete -cd killall
