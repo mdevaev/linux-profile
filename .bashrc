@@ -18,6 +18,8 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -l --group-directories-first'
+alias cpr='rsync -ur --progress'
+alias mvr='rsync -ur --progress --remove-sent-files'
 
 alias mplayer='mplayer -lavdopts threads=4 -vo gl2:yuv=3 -framedrop -nodr -double -ao alsa'
 alias xrandr_dock='xrandr --output VGA1 --preferred -s 1600x1200 && xrandr --output LVDS1 --off'
