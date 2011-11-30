@@ -45,6 +45,11 @@ autocmd BufEnter * lcd %:p:h " set autochdir
 set completeopt-=preview
 set completeopt+=longest
 
+highlight StyleError ctermbg=red guibg=red
+match StyleError /\s\+$/
+match StyleError /\s\+$\| \+\ze\t/
+"match StyleError /[^ ]:$/
+
 
 """ Keybindings
 inoremap <S-Tab> <C-V><Tab>
