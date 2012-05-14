@@ -2,6 +2,7 @@
 # ~/.bashrc
 #
 
+
 export EDITOR=vim
 export PAGER="/bin/sh -c \"unset PAGER; col -b -x | \
 	vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
@@ -33,20 +34,32 @@ bldred='\[\e[1;31m\]'  # Red
 bldgrn='\[\e[1;32m\]' # Green
 bldblue='\[\e[1;34m\]' # Blue
 bldcyn='\[\e[1;36m\]'  # Cyan
+bldbrwn='\[\e[1;33m\]' # Brown
 txtrst='\[\e[0m\]'     # Text Reset
 
-color_user() {
+prompt_user() {
     [ "$UID" -eq 0 ] && echo "$bldred\u$txtrst" || echo "$bldcyn\u$txtrst"
 }
-color_host() {
+
+prompt_host() {
     [ -n "$SSH_CONNECTION" ] && echo "$bldgrn\h$txtrst" || echo "\h"
 }
-color_schroot() {
-    [ -n "$SCHROOT_CHROOT_NAME" ] && echo "($bldred$SCHROOT_CHROOT_NAME$txtrst)"
+
+prompt_git() {
+	local git_dir=$(git rev-parse --git-dir 2>/dev/null)
+	[ -z "$git_dir" ] && return 0
+	[ "$HOME" == $(dirname $(realpath "$git_dir")) ] && return 0
+	local git_branch=$(git branch 2>/dev/null | sed -n '/^\*/s/^\* //p')
+	[ -n "$git_branch" ] && echo "(g:$bldbrwn$git_branch$txtrst)"
 }
+
+prompt_schroot() {
+    [ -n "$SCHROOT_CHROOT_NAME" ] && echo "(c:$bldred$SCHROOT_CHROOT_NAME$txtrst)"
+}
+
 prompt() {
     [ "$UID" -eq 0 ] && echo "#" || echo "$"
 }
 
-export PS1="[$(color_user)@$(color_host)$(color_schroot) $bldblue\W$txtrst]$(prompt) "
+export PROMPT_COMMAND='PS1="[$(prompt_user)@$(prompt_host)$(prompt_schroot)$(prompt_git) $bldblue\W$txtrst]$(prompt) "'
 
