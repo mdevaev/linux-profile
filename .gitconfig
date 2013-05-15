@@ -11,14 +11,17 @@
     name = Devaev Maxim
     email = mdevaev@gmail.com
 
+[alias]
+	pick = cherry-pick -x --signoff
+
 [merge]
     tool = meld
 
-[pkg "lucid"]
-    schroot = ubuntu-lucid-amd64
-    type = deb
-    arch = amd64
+[pkg]
+	final-push = yes
 
 [pkg "arch"]
     type = arch
 
+[push]
+	default = matching
