@@ -47,7 +47,7 @@ prompt_host() {
 
 prompt_git() {
 	local git_dir=`git rev-parse --git-dir 2>/dev/null`
-	if [ -z "$git_dir" -o "$HOME" == `dirname $(realpath "$git_dir")` ]; then
+	if [ -z "$git_dir" ] || [ "$HOME" == `dirname $(realpath "$git_dir")` ]; then
 		echo " $bldblue\W$txtrst"
 		return 0
 	fi
