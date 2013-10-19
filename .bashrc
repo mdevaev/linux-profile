@@ -16,7 +16,7 @@ export PAGER="/bin/sh -c \"unset PAGER; col -b -x | \
 
 eval `dircolors -b`
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
+alias ls='ls --group-directories-first --color=auto'
 alias la='ls -A'
 alias ll='ls -l --group-directories-first'
 alias cpr='rsync -ur --progress'
