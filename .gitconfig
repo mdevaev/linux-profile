@@ -1,5 +1,6 @@
 [color]
     diff = no
+    grep = no
     status = auto
     branch = auto
 
