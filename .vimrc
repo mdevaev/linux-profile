@@ -24,11 +24,7 @@
 
 """ Indents
 set tabstop=4
-if getcwd() =~ "\/yandex"
-	set shiftwidth=4
-	set softtabstop=4
-	set expandtab
-endif
+au FileType python setl sw=4 sts=4 et
 
 
 """ Common settings
