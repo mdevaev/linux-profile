@@ -31,18 +31,25 @@ complete -cd killall
 
 
 bldred='\[\e[1;31m\]'  # Red
-bldgrn='\[\e[1;32m\]' # Green
+bldgrn='\[\e[1;32m\]'  # Green
 bldblue='\[\e[1;34m\]' # Blue
 bldcyn='\[\e[1;36m\]'  # Cyan
 bldbrwn='\[\e[1;33m\]' # Brown
+bldmgn='\[\e[1;35m\]' # Dark Brown
 txtrst='\[\e[0m\]'     # Text Reset
 
 prompt_user() {
-    [ "$UID" -eq 0 ] && echo "$bldred\u$txtrst" || echo "$bldcyn\u$txtrst"
+	[ "$UID" -eq 0 ] && echo "$bldred\u$txtrst" || echo "$bldcyn\u$txtrst"
 }
 
 prompt_host() {
-    [ -n "$SSH_CONNECTION" ] && echo "$bldgrn\h$txtrst" || echo "\h"
+	if [ -n "$SSH_CONNECTION" ]; then
+		echo "$bldgrn\h$txtrst"
+	elif [ -n "$HOSTNAME" ]; then # External hostname, for example - from Docker
+		echo "$bldmgn\h$txtrst"
+	else
+		echo "\h"
+	fi
 }
 
 prompt_git() {
@@ -57,11 +64,11 @@ prompt_git() {
 }
 
 prompt_schroot() {
-    [ -n "$SCHROOT_CHROOT_NAME" ] && echo "(c:$bldred$SCHROOT_CHROOT_NAME$txtrst)"
+	[ -n "$SCHROOT_CHROOT_NAME" ] && echo "(c:$bldred$SCHROOT_CHROOT_NAME$txtrst)"
 }
 
 prompt() {
-    [ "$UID" -eq 0 ] && echo "#" || echo "$"
+	[ "$UID" -eq 0 ] && echo "#" || echo "$"
 }
 
 export PROMPT_COMMAND='PS1="[$(prompt_user)@$(prompt_host)$(prompt_schroot)$(prompt_git)]$(prompt) "'
