@@ -45,7 +45,7 @@ prompt_user() {
 prompt_host() {
 	if [ -n "$SSH_CONNECTION" ]; then
 		echo "$bldgrn\h$txtrst"
-	elif [ -n "$HOSTNAME" ]; then # External hostname, for example - from Docker
+	elif [ -n "$DOCKER" ]; then # Docker crutch
 		echo "$bldmgn\h$txtrst"
 	else
 		echo "\h"
