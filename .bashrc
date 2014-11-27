@@ -53,14 +53,20 @@ prompt_host() {
 }
 
 prompt_git() {
-	local git_dir=`git rev-parse --git-dir 2>/dev/null`
-	if [ -z "$git_dir" ] || [ "$HOME" == `dirname $(realpath "$git_dir")` ]; then
+	which git >/dev/null 2>&1
+	if [ "$?" -eq 0 ]; then
+		local git_dir=`git rev-parse --git-dir 2>/dev/null`
+		if [ -z "$git_dir" ] || [ "$HOME" == `dirname $(realpath "$git_dir")` ]; then
+			echo " $bldblue\W$txtrst"
+			return 0
+		fi
+		local git_branch=`git branch 2>/dev/null | sed -n '/^\*/s/^\* //p'`
+		local git_path=g:/`git rev-parse --show-prefix | sed 's/\n//g'`
+		[ -n "$git_branch" ] && echo "(g:$bldbrwn$git_branch$txtrst) $bldblue$git_path$txtrst"
+	else
 		echo " $bldblue\W$txtrst"
 		return 0
 	fi
-	local git_branch=`git branch 2>/dev/null | sed -n '/^\*/s/^\* //p'`
-	local git_path=g:/`git rev-parse --show-prefix | sed 's/\n//g'`
-	[ -n "$git_branch" ] && echo "(g:$bldbrwn$git_branch$txtrst) $bldblue$git_path$txtrst"
 }
 
 prompt_schroot() {
@@ -72,4 +78,3 @@ prompt() {
 }
 
 export PROMPT_COMMAND='PS1="[$(prompt_user)@$(prompt_host)$(prompt_schroot)$(prompt_git)]$(prompt) "'
-
