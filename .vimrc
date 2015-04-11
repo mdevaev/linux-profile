@@ -25,6 +25,7 @@
 """ Indents
 set tabstop=4
 au FileType python setl sw=4 sts=4 et
+au FileType yaml setl sw=4 sts=4 et
 
 
 """ Common settings

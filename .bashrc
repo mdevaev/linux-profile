@@ -19,6 +19,7 @@ alias grep='grep --color=auto'
 alias ls='ls --group-directories-first --color=auto'
 alias la='ls -A'
 alias ll='ls -l --group-directories-first'
+alias perms='stat -c "%a %n"'
 alias cpr='rsync -ur --progress'
 alias mvr='rsync -ur --progress --remove-sent-files'
 
@@ -30,13 +31,13 @@ complete -cf sudo
 complete -cd killall
 
 
-bldred='\[\e[1;31m\]'  # Red
-bldgrn='\[\e[1;32m\]'  # Green
-bldblue='\[\e[1;34m\]' # Blue
-bldcyn='\[\e[1;36m\]'  # Cyan
-bldbrwn='\[\e[1;33m\]' # Brown
-bldmgn='\[\e[1;35m\]' # Dark Brown
-txtrst='\[\e[0m\]'     # Text Reset
+bldred='\[\e[1;31m\]'   # Red
+bldgrn='\[\e[1;32m\]'   # Green
+bldblue='\[\e[1;34m\]'  # Blue
+bldcyn='\[\e[1;36m\]'   # Cyan
+bldbrwn='\[\e[1;33m\]'  # Brown
+bldmgn='\[\e[1;35m\]'   # Dark Brown
+txtrst='\[\e[0m\]'      # Text Reset
 
 prompt_user() {
 	[ "$UID" -eq 0 ] && echo "$bldred\u$txtrst" || echo "$bldcyn\u$txtrst"
