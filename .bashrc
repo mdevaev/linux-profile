@@ -22,6 +22,7 @@ alias ll='ls -l --group-directories-first'
 alias perms='stat -c "%a %n"'
 alias cpr='rsync -ur --progress'
 alias mvr='rsync -ur --progress --remove-sent-files'
+alias git='LANG=C git'
 
 alias mplayer='mplayer -lavdopts threads=4 -vo gl2:yuv=3 -framedrop -nodr -double -ao alsa -cache 65535 -cache-min 10'
 alias xrandr_dock='xrandr --output VGA1 --preferred -s 1600x1200 && xrandr --output LVDS1 --off'
