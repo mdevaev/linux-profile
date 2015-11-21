@@ -32,6 +32,16 @@ complete -cf sudo
 complete -cd killall
 
 
+aur() {
+	[[ -f PKGBUILD ]] || exit 1
+	source PKGBUILD
+	mksrcinfo
+	git add .SRCINFO PKGBUILD
+	git commit -am "Update to $pkgver-$pkgrel"
+	git push
+}
+
+
 bldred='\[\e[1;31m\]'   # Red
 bldgrn='\[\e[1;32m\]'   # Green
 bldblue='\[\e[1;34m\]'  # Blue
