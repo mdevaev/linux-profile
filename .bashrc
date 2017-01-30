@@ -8,6 +8,10 @@ export PAGER="/bin/sh -c \"unset PAGER; col -b -x | \
 	vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
 	-c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
 	-c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+export BROWSER=chromium
+
+
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 
 # If not running interactively, don't do anything
@@ -23,10 +27,6 @@ alias perms='stat -c "%a %n"'
 alias cpr='rsync -ur --progress'
 alias mvr='rsync -ur --progress --remove-sent-files'
 alias git='LANG=C git'
-
-alias mplayer='mplayer -lavdopts threads=4 -vo gl2:yuv=3 -framedrop -nodr -double -ao alsa -cache 65535 -cache-min 10'
-alias xrandr_dock='xrandr --output VGA1 --preferred -s 1600x1200 && xrandr --output LVDS1 --off'
-alias xrandr_free='xrandr --output LVDS1 --preferred -s 1366x768 && xrandr --output VGA1 --off'
 
 complete -cf sudo
 complete -cd killall

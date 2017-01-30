@@ -30,7 +30,9 @@ au FileType yaml setl sw=4 sts=4 et
 
 """ Common settings
 syntax on
+set t_Co=8
 colorscheme evening
+
 set hlsearch
 set incsearch
 set ignorecase
