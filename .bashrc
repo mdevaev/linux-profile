@@ -41,6 +41,14 @@ aur() {
 	git push
 }
 
+google-sync() {
+	grive --path ~/gdisk
+}
+
+yandex-sync() {
+	yandex-disk sync
+}
+
 
 bldred='\[\e[1;31m\]'   # Red
 bldgrn='\[\e[1;32m\]'   # Green
