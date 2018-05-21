@@ -23,7 +23,9 @@ alias grep='grep --color=auto'
 alias ls='ls --group-directories-first --color=auto'
 alias la='ls -A'
 alias ll='ls -l --group-directories-first'
-alias perms='stat -c "%a %n"'
+alias d='colordiff -u'
+alias perm='stat -c "%a %n"'
+alias cls='clear; clear'
 alias cpr='rsync -ur --progress'
 alias mvr='rsync -ur --progress --remove-sent-files'
 alias git='LANG=C git'
@@ -34,15 +36,17 @@ complete -cd killall
 
 aur() {
 	[[ -f PKGBUILD ]] || exit 1
-	source PKGBUILD
-	mksrcinfo
+	#source PKGBUILD
+	makepkg --printsrcinfo > .SRCINFO
 	git add .SRCINFO PKGBUILD
 	git commit -am "Update to $pkgver-$pkgrel"
 	git push
 }
 
 google-sync() {
-	grive --path ~/gdisk
+	cd ~/gdisk
+	drive pull && drive push
+	cd -
 }
 
 yandex-sync() {

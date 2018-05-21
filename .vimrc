@@ -32,6 +32,7 @@ au FileType yaml setl sw=4 sts=4 et
 syntax on
 set t_Co=8
 colorscheme evening
+set encoding=utf8
 
 set hlsearch
 set incsearch
@@ -130,4 +131,3 @@ nmap <F2> :emenu SpacesRefactoring.<Tab>
 """ File types
 autocmd BufRead,BufNewFile *.??-??  set filetype=sldict
 autocmd BufRead,BufNewFile *.pde set filetype=arduino
-
