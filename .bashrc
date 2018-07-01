@@ -36,9 +36,9 @@ complete -cd killall
 
 aur() {
 	[[ -f PKGBUILD ]] || exit 1
-	#source PKGBUILD
 	makepkg --printsrcinfo > .SRCINFO
 	git add .SRCINFO PKGBUILD
+	source PKGBUILD
 	git commit -am "Update to $pkgver-$pkgrel"
 	git push
 }
