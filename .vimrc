@@ -23,7 +23,8 @@
 
 
 """ Indents
-set tabstop=4
+set ts=4
+set sw=4
 au FileType python setl sw=4 sts=4 et
 au FileType yaml setl sw=4 sts=4 et
 
