@@ -46,11 +46,6 @@ autocmd BufEnter * lcd %:p:h " set autochdir
 set completeopt-=preview
 set completeopt+=longest
 
-highlight StyleError ctermbg=red guibg=red
-match StyleError /\s\+$/
-match StyleError /\s\+$\| \+\ze\t/
-"match StyleError /[^ ]:$/
-
 
 """ Keybindings
 inoremap <S-Tab> <C-V><Tab>
@@ -72,34 +67,6 @@ if bufwinnr(1)
 	nmap < <C-W><
 endif
 
-""" Smart tab completion
-"""	based on http://vim.wikia.com/wiki/Smart_mapping_for_tab_completion
-"let g:smart_tab_complete_filetypes = ["c", "python", "xml"]
-"function! SmartTabWrapper()
-"	if ( strlen(&omnifunc) == 0 || index(g:smart_tab_complete_filetypes, &filetype) == -1 )
-"	    return "\<Tab>"
-"	endif
-"
-"	if ( col('.') - 1 == 0 )
-"		return "\<Tab>"
-"	endif
-"
-"	let line = matchstr(strpart(getline("."), -2, col('.') + 1), "[^ \t\*#\|,;]*$")
-"	if ( strlen(line) == 0 )
-"		return "\<Tab>"
-"	endif
-"
-"	let period_flag = ( line =~ "\." ) " let period_flag = ( match(line, '\.') != -1 )
-"	let slash_flag = ( line =~ "\/" ) " let slash_flag = ( match(line, '\/') != -1 )
-"
-"	if ( !period_flag && !slash_flag )
-"		return "\<C-p>"
-"	elseif ( slash_flag )
-"		return "\<C-x>\<C-f>"
-"	else
-"		return "\<C-x>\<C-o>"
-"	endif
-"endfunction
 function! InsertTabWrapper()
 	let line = matchstr(strpart(getline("."), -2, col('.') + 1), "[^ \t\*#\|,;]*$")
 	if ( strlen(line) == 0 )
@@ -127,8 +94,3 @@ menu SpacesRefactoring.[Tab\ to\ 6\ Spaces] :%s#^\(\t\+\)#\=repeat(" ", len(subm
 menu SpacesRefactoring.[Tab\ to\ 8\ Spaces] :%s#^\(\t\+\)#\=repeat(" ", len(submatch(0))*8)#g<Cr>
 
 nmap <F2> :emenu SpacesRefactoring.<Tab>
-
-
-""" File types
-autocmd BufRead,BufNewFile *.??-??  set filetype=sldict
-autocmd BufRead,BufNewFile *.pde set filetype=arduino

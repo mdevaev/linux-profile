@@ -1,13 +1,5 @@
-#
-# ~/.bashrc
-#
-
-
 export EDITOR=vim
-export PAGER="/bin/sh -c \"unset PAGER; col -b -x | \
-	vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-	-c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-	-c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+which vimpager >/dev/null 2>&1 && export PAGER=vimpager || export PAGER=less
 export BROWSER=chromium
 
 
@@ -41,16 +33,6 @@ aur() {
 	source PKGBUILD
 	git commit -am "Update to $pkgver-$pkgrel"
 	git push
-}
-
-google-sync() {
-	cd ~/gdisk
-	drive pull && drive push
-	cd -
-}
-
-yandex-sync() {
-	yandex-disk sync
 }
 
 
