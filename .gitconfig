@@ -7,7 +7,7 @@
 
 [core]
     editor = vim
-    pager = vim -
+    pager = vimpager
 
 [user]
     name = Devaev Maxim
@@ -18,12 +18,6 @@
 
 [merge]
     tool = meld
-
-[pkg]
-	final-push = yes
-
-[pkg "arch"]
-    type = arch
 
 [push]
 	default = matching
