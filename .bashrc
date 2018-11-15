@@ -26,14 +26,16 @@ complete -cf sudo
 complete -cd killall
 
 
-aur() {
+aur() {(
+	set -x
+	set -e
 	[[ -f PKGBUILD ]] || exit 1
-	makepkg --printsrcinfo > .SRCINFO
-	git add .SRCINFO PKGBUILD
 	source PKGBUILD
+	makepkg --printsrcinfo > .SRCINFO
+	git add .SRCINFO PKGBUILD $install
 	git commit -am "Update to $pkgver-$pkgrel"
 	git push
-}
+)}
 
 
 bldred='\[\e[1;31m\]'   # Red
