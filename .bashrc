@@ -1,6 +1,6 @@
 export EDITOR=vim
 which vimpager >/dev/null 2>&1 && export PAGER=vimpager || export PAGER=less
-export BROWSER=chromium
+which chromium >/dev/null 2>&1 && export BROWSER=chromium
 
 
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -24,18 +24,6 @@ alias git='LANG=C git'
 
 complete -cf sudo
 complete -cd killall
-
-
-aur() {(
-	set -x
-	set -e
-	[[ -f PKGBUILD ]] || exit 1
-	source PKGBUILD
-	makepkg --printsrcinfo > .SRCINFO
-	git add .SRCINFO PKGBUILD $install
-	git commit -am "Update to $pkgver-$pkgrel"
-	git push
-)}
 
 
 bldred='\[\e[1;31m\]'   # Red
@@ -77,12 +65,8 @@ prompt_git() {
 	fi
 }
 
-prompt_schroot() {
-	[ -n "$SCHROOT_CHROOT_NAME" ] && echo "(c:$bldred$SCHROOT_CHROOT_NAME$txtrst)"
-}
-
 prompt() {
 	[ "$UID" -eq 0 ] && echo "#" || echo "$"
 }
 
-export PROMPT_COMMAND='PS1="[$(prompt_user)@$(prompt_host)$(prompt_schroot)$(prompt_git)]$(prompt) "'
+export PROMPT_COMMAND='PS1="[$(prompt_user)@$(prompt_host)$(prompt_git)]$(prompt) "'
