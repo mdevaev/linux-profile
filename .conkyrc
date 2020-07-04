@@ -25,7 +25,7 @@ own_window_type dock
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_argb_visual yes
 own_window_argb_value 100
-gap_y 3
+gap_y 0
 
 #own_window yes
 #own_window_type dock
@@ -85,7 +85,7 @@ default_outline_color black
 #alignment bottom_left
 #alignment bottom_right
 #gap_y 736
-gap_x 120
+gap_x 50
 
 # Add spaces to keep things from moving about?  This only affects certain objects.
 use_spacer left
@@ -103,5 +103,5 @@ draw_graph_borders yes
 # openbox: goto 200
 TEXT
 ${color FFFFFF}
-${goto 200}CPU: ${goto 245}${cpu}%${goto 280}${cpubar 8,100} ${goto 390} RAM: ${goto 435}${memperc}%${goto 470}${membar 8,100} ${goto 580} HDD: ${goto 615} ${diskio}${goto 665}${diskiograph 8,100 FFFFFF FFFFFF} ${goto 780} Speed: [ eth0: ${downspeed eth0}D/${upspeed eth0}U ] [ eth1: ${downspeed eth1}D/${upspeed eth1}U ] [ wlan0: ${downspeed wlan0}D/${upspeed wlan0}U ] [ tun0: ${downspeed tun0}D/${upspeed tun0}U  ]
-${goto 200}P: ${processes}  R: ${running_processes}  A: ${loadavg 1} ${loadavg 2} ${loadavg 3} ${goto 390} SWP: ${goto 435}${swapperc}%${goto 470}${swapbar 8,100} ${goto 580} Bat: ${goto 615} ${battery_percent}%${goto 665}${battery_bar 8,100} ${goto 780} Bat Time: ${battery_time} ${goto 915} Wi-Fi: ${wireless_link_qual_perc wlan0}%${goto 995}${wireless_link_bar 8,100 wlan0}  [ ESSID: ${wireless_essid wlan0} ]
+${goto 200}CPU: ${goto 245}${cpu}%${goto 280}${cpubar 8,100} ${goto 390} RAM: ${goto 435}${memperc}%${goto 470}${membar 8,100} ${goto 580} HDD: ${goto 615} ${diskio}${goto 665}${diskiograph 8,100 FFFFFF FFFFFF} ${goto 780} Speed: [eth0: ${downspeed eth0}D/${upspeed eth0}U] [eth1: ${downspeed eth1}D/${upspeed eth1}U] [wlan0: ${downspeed wlan0}D/${upspeed wlan0}U]
+${goto 200}P: ${processes}  R: ${running_processes}  A: ${loadavg 1} ${loadavg 2} ${loadavg 3} ${goto 390} SWP: ${goto 435}${swapperc}%${goto 470}${swapbar 8,100} ${goto 580} Bat: ${goto 615} ${battery_percent}%${goto 665}${battery_bar 8,100} ${goto 780} Bat Time: ${battery_time} ${goto 915} Wi-Fi: ${wireless_link_qual_perc wlan0}%${goto 995}${wireless_link_bar 8,100 wlan0}  [ESSID: ${wireless_essid wlan0}]

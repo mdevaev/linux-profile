@@ -68,7 +68,7 @@ if bufwinnr(1)
 endif
 
 function! InsertTabWrapper()
-	let line = matchstr(strpart(getline("."), -2, col('.') + 1), "[^ \t\*#\|,;]*$")
+	let line = matchstr(strpart(getline("."), -2, col('.') + 1), "[^ \t\*#\|,;:]*$")
 	if ( strlen(line) == 0 )
 		return "\<Tab>"
 	endif
