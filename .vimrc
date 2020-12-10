@@ -94,3 +94,17 @@ menu SpacesRefactoring.[Tab\ to\ 6\ Spaces] :%s#^\(\t\+\)#\=repeat(" ", len(subm
 menu SpacesRefactoring.[Tab\ to\ 8\ Spaces] :%s#^\(\t\+\)#\=repeat(" ", len(submatch(0))*8)#g<Cr>
 
 nmap <F2> :emenu SpacesRefactoring.<Tab>
+
+
+"""
+augroup twig_ft
+	au!
+	autocmd BufNewFile,BufRead *.pug   set syntax=pug
+augroup END
+
+augroup ft_c
+	au!
+	au BufEnter *.c setf c
+	au BufEnter *.h setf c
+	autocmd Syntax c syn match cType "\<[a-zA-Z_][a-zA-Z0-9_]*_[tseu]\>"
+augroup end
