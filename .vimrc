@@ -106,5 +106,5 @@ augroup ft_c
 	au!
 	au BufEnter *.c setf c
 	au BufEnter *.h setf c
-	autocmd Syntax c syn match cType "\<[a-zA-Z_][a-zA-Z0-9_]*_[tseu]\>"
+	autocmd Syntax c syn match cType "\<[a-zA-Z_][a-zA-Z0-9_]*_[tseuf]\>"
 augroup end

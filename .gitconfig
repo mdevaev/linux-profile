@@ -9,10 +9,6 @@
     editor = vim
     pager = vim -
 
-[user]
-    name = Devaev Maxim
-    email = mdevaev@gmail.com
-
 [alias]
 	pick = cherry-pick -x --signoff
 
@@ -23,3 +19,6 @@
 	default = matching
 [pager]
 	branch = false
+
+[include]
+	path = ~/.gitprivate
