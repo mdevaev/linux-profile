@@ -32,8 +32,9 @@ au FileType yaml setl sw=4 sts=4 et
 """ Common settings
 syntax on
 set t_Co=8
-colorscheme evening
+colorscheme default
 set encoding=utf8
+autocmd SourcePre * set t_Co=8
 
 set hlsearch
 set incsearch
