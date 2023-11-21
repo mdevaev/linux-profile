@@ -1,5 +1,0 @@
-source ~/.vimrc
-
-let vimpager_scrolloff = 0
-unmap <Up>
-unmap <Down>

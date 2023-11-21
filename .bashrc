@@ -1,5 +1,5 @@
 export EDITOR=vim
-which vimpager >/dev/null 2>&1 && export PAGER=vimpager || export PAGER=less
+export PAGER=less
 which chromium >/dev/null 2>&1 && export BROWSER=chromium
 
 

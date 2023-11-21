@@ -1,22 +1,23 @@
 [color]
-    log = no
-    diff = no
-    grep = no
-    status = auto
-    branch = auto
+	log = no
+	diff = no
+	grep = no
+	status = auto
+	branch = auto
 
 [core]
-    editor = vim
-    pager = vim -
+	editor = vim
+	pager = vim -
 
 [alias]
 	pick = cherry-pick -x --signoff
 
 [merge]
-    tool = meld
+	tool = meld
 
 [push]
 	default = matching
+
 [pager]
 	branch = false
 
