@@ -1,10 +1,3 @@
-""" IBM manuals:
-"""	http://www.ibm.com/developerworks/linux/library/l-vim-script-1/index.html
-"""	http://www.ibm.com/developerworks/linux/library/l-vim-script-2/index.html
-"""	http://www.ibm.com/developerworks/linux/library/l-vim-script-3/index.html
-"""	http://www.ibm.com/developerworks/linux/library/l-vim-script-4/index.html
-"""	http://www.ibm.com/developerworks/linux/library/l-vim-script-5/index.html
-"""
 """ Pythoncomplete plugin:
 """	http://www.vim.org/scripts/script.php?script_id=1542
 """
@@ -19,7 +12,6 @@
 """	http://habrahabr.ru/blogs/vim/28572/
 """	http://aufather.wordpress.com/2010/08/26/omni-completion-in-vim/
 """	http://vim.runpaint.org/other-uses-vim/browsing-directories/
-"""	http://unixforum.org/index.php?showforum=110
 
 
 """ Indents
@@ -108,4 +100,5 @@ augroup ft_c
 	au BufEnter *.c setf c
 	au BufEnter *.h setf c
 	autocmd Syntax c syn match cType "\<[a-zA-Z_][a-zA-Z0-9_]*_[tseuf]\>"
+	autocmd Syntax c syn keyword cType s8 s16 s32 s64 sz u8 u16 u32 u64 uint uz
 augroup end
