@@ -1,0 +1,36 @@
+[Description]
+Skin=Default Tabs
+Author=Devaev Maxim
+Email=mdevaev@gmail.com
+
+[Tabs]
+compact=true
+x=25
+y=0
+red=240
+green=240
+blue=240
+#separator_image=/tabs/unselected_back.png
+#selected_background=/tabs/selected_back.png
+selected_left_corner=/tabs/selected_separator.svg
+selected_right_corner=/tabs/selected_separator.svg
+#unselected_background=/tabs/unselected_back.png
+selected_text_bold=true
+
+[Background]
+back_image=/tabs/background_center.svg
+left_corner=0
+right_corner=0
+
+# When in `[Tabs] compact=true` mode, Yakuake will use the width of the
+# CloseTab button to determine the right most point of the TabBar (rect.x2).
+# https://invent.kde.org/utilities/yakuake/-/blob/master/app/skin.cpp#L148
+# So to make the FocusButton and ConfigButton visible on the right side, we
+# Need to set this x = 2*30px (since we hide the QuitButton too).
+# We can use x=60 and width=0, since a user can Ctrl+Shift+W or middle click to close a tab.
+[MinusButton]
+x=100
+y=0
+up_image=0
+over_image=0
+down_image=0
