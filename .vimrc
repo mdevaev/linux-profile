@@ -93,12 +93,17 @@ nmap <F2> :emenu SpacesRefactoring.<Tab>
 augroup twig_ft
 	au!
 	autocmd BufNewFile,BufRead *.pug   set syntax=pug
-augroup END
+augroup end
 
 augroup ft_c
 	au!
 	au BufEnter *.c setf c
 	au BufEnter *.h setf c
 	autocmd Syntax c syn match cType "\<[a-zA-Z_][a-zA-Z0-9_]*_[tseuf]\>"
-	autocmd Syntax c syn keyword cType s8 s16 s32 s64 sz u8 u16 u32 u64 uint uz
+	autocmd Syntax c syn keyword cType sll s8 s16 s32 s64 sz ull u8 u16 u32 u64 uint uz ldf
+augroup end
+
+augroup ft_diff
+	highlight DiffAdd		cterm=bold ctermfg=10 ctermbg=0 gui=none guifg=bg guibg=Green
+	highlight DiffDelete	cterm=bold ctermfg=1 ctermbg=0 gui=none guifg=bg guibg=Red
 augroup end
