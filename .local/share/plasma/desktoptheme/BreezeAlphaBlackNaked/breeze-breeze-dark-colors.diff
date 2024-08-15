@@ -1,0 +1,89 @@
+--- /usr/share/plasma/desktoptheme/default/colors	Mon Oct  5 04:28:27 2015
++++ /home/chris/.local/share/plasma/desktoptheme/breeze-seven/colors	Tue Mar  8 16:03:49 2016
+@@ -19,8 +19,8 @@
+ IntensityEffect=0
+ 
+ [Colors:Button]
+-BackgroundAlternate=224,223,222
+-BackgroundNormal=239,240,241
++BackgroundAlternate=59,64,69
++BackgroundNormal=29,34,39
+ DecorationFocus=30,146,255
+ DecorationHover=61,174,230
+ ForegroundActive=246,116,0
+@@ -28,7 +28,7 @@
+ ForegroundLink=61,174,230
+ ForegroundNegative=237,21,21
+ ForegroundNeutral=201,206,59
+-ForegroundNormal=49,54,59
++ForegroundNormal=239,240,241
+ ForegroundPositive=17,209,22
+ ForegroundVisited=61,174,230
+ 
+@@ -47,8 +47,8 @@
+ ForegroundVisited=252,252,252
+ 
+ [Colors:Tooltip]
+-BackgroundAlternate=196,224,255
+-BackgroundNormal=239,240,241
++BackgroundAlternate=59,64,69
++BackgroundNormal=49,54,59
+ DecorationFocus=30,146,255
+ DecorationHover=61,174,230
+ ForegroundActive=246,116,0
+@@ -56,13 +56,13 @@
+ ForegroundLink=61,174,230
+ ForegroundNegative=237,21,21
+ ForegroundNeutral=201,206,59
+-ForegroundNormal=49,54,59
++ForegroundNormal=239,240,241
+ ForegroundPositive=17,209,22
+ ForegroundVisited=61,174,230
+ 
+ [Colors:View]
+-BackgroundAlternate=248,247,246
+-BackgroundNormal=252,252,252
++BackgroundAlternate=59,64,69
++BackgroundNormal=59,64,69
+ DecorationFocus=30,146,255
+ DecorationHover=61,174,230
+ ForegroundActive=246,116,0
+@@ -70,13 +70,13 @@
+ ForegroundLink=61,174,230
+ ForegroundNegative=237,21,21
+ ForegroundNeutral=201,206,59
+-ForegroundNormal=49,54,59
++ForegroundNormal=239,240,241
+ ForegroundPositive=17,209,22
+ ForegroundVisited=61,174,230
+ 
+ [Colors:Window]
+-BackgroundAlternate=218,217,216
+-BackgroundNormal=239,240,241
++BackgroundAlternate=59,64,69
++BackgroundNormal=49,54,59
+ DecorationFocus=30,146,255
+ DecorationHover=61,174,230
+ ForegroundActive=246,116,0
+@@ -84,7 +84,7 @@
+ ForegroundLink=61,174,230
+ ForegroundNegative=237,21,21
+ ForegroundNeutral=201,206,59
+-ForegroundNormal=49,54,59
++ForegroundNormal=239,240,241
+ ForegroundPositive=17,209,22
+ ForegroundVisited=61,174,230
+ 
+@@ -102,10 +102,9 @@
+ ForegroundPositive=17,209,22
+ ForegroundVisited=61,174,230
+ 
+-
+ [General]
+-ColorScheme=Breeze
+-Name=Breeze
++ColorScheme=Breeze Seven
++Name=Breeze Seven
+ shadeSortColumn=true
+ 
+ [KDE]
