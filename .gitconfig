@@ -4,6 +4,7 @@
 	grep = no
 	status = auto
 	branch = auto
+	ui = true
 
 [core]
 	editor = vim
@@ -20,6 +21,27 @@
 
 [pager]
 	branch = false
+	diff = diff-so-fancy | less -S --mouse --wheel-lines=3 --tabs=4
+	# diffr --colors refine-added:none:background:0x33,0x99,0x33:bold --colors added:none:background:0x33,0x55,0x33 --colors refine-removed:none:background:0x99,0x33,0x33:bold --colors removed:none:background:0x55,0x33,0x33
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
+	# diffr --colors refine-added:none:background:0x33,0x99,0x33:bold --colors added:none:background:0x33,0x55,0x33 --colors refine-removed:none:background:0x99,0x33,0x33:bold --colors removed:none:background:0x55,0x33,0x33
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 
 [include]
 	path = ~/.gitprivate
