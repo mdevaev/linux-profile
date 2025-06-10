@@ -101,6 +101,8 @@ augroup ft_c
 	au BufEnter *.h setf c
 	autocmd Syntax c syn match cType "\<[a-zA-Z_][a-zA-Z0-9_]*_[tseuf]\>"
 	autocmd Syntax c syn keyword cType sll s8 s16 s32 s64 sz ull u8 u16 u32 u64 uint uz ldf
+	autocmd Syntax cpp syn match cType "\<[a-zA-Z_][a-zA-Z0-9_]*_[tseuf]\>"
+	autocmd Syntax cpp syn keyword cType sll s8 s16 s32 s64 sz ull u8 u16 u32 u64 uint uz ldf
 augroup end
 
 augroup ft_diff
