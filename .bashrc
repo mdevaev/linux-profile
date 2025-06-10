@@ -23,27 +23,41 @@ alias cpr='rsync -ur --progress'
 alias mvr='rsync -ur --progress --remove-sent-files'
 alias git='LANG=C git'
 
+fv() {
+	local search=""
+	if [[ $# -gt 0 ]]; then
+		search="$1"
+		shift
+	fi
+	command rg --color=always --line-number --no-heading --smart-case "$@" "$search" \
+		| command fzf -d':' --ansi \
+			--preview "command bat -p --color=always {1} --highlight-line {2}" \
+			--preview-window ~8,+{2}-5 \
+			--bind 'enter:execute(vim `echo {} | cut -d : -f 1` +`echo {} | cut -d : -f 2`)' \
+			--bind 'ctrl-o:become(vim `echo {} | cut -d : -f 1` +`echo {} | cut -d : -f 2`)'
+}
+
 complete -cf sudo
 complete -cd killall
 
 
-bldred='\[\e[1;31m\]'   # Red
-bldgrn='\[\e[1;32m\]'   # Green
-bldblue='\[\e[1;34m\]'  # Blue
-bldcyn='\[\e[1;36m\]'   # Cyan
-bldbrwn='\[\e[1;33m\]'  # Brown
-bldmgn='\[\e[1;35m\]'   # Dark Brown
+cred='\[\e[1;31m\]'   # Red
+cgrn='\[\e[1;32m\]'   # Green
+cblue='\[\e[1;34m\]'  # Blue
+ccyn='\[\e[1;36m\]'   # Cyan
+cbrwn='\[\e[1;33m\]'  # Brown
+cmgn='\[\e[1;35m\]'   # Dark Brown
 txtrst='\[\e[0m\]'      # Text Reset
 
 prompt_user() {
-	[ "$UID" -eq 0 ] && echo "$bldred\u$txtrst" || echo "$bldcyn\u$txtrst"
+	[ "$UID" -eq 0 ] && echo "$cred\u$txtrst" || echo "$ccyn\u$txtrst"
 }
 
 prompt_host() {
 	if [ -n "$SSH_CONNECTION" ]; then
-		echo "$bldgrn\h$txtrst"
+		echo "$cgrn\h$txtrst"
 	elif [ -n "$DOCKER" ]; then # Docker crutch
-		echo "$bldmgn\h$txtrst"
+		echo "$cmgn\h$txtrst"
 	else
 		echo "\h"
 	fi
@@ -54,14 +68,15 @@ prompt_git() {
 	if [ "$?" -eq 0 ]; then
 		local git_dir=`git rev-parse --git-dir 2>/dev/null`
 		if [ -z "$git_dir" ] || [ "$HOME" == `dirname $(realpath "$git_dir")` ]; then
-			echo " $bldblue\W$txtrst"
+			echo " $cblue\W$txtrst"
 			return 0
 		fi
+		local git_project=$(basename `git rev-parse --show-toplevel`)
 		local git_branch=`git branch 2>/dev/null | sed -n '/^\*/s/^\* //p'`
-		local git_path=g:/`git rev-parse --show-prefix | sed 's/\n//g'`
-		[ -n "$git_branch" ] && echo "(g:$bldbrwn$git_branch$txtrst) $bldblue$git_path$txtrst"
+		local git_path=/`git rev-parse --show-prefix | sed 's/\n//g'`
+		[ -n "$git_branch" ] && echo " g:$cmgn$git_project$txtrst:$cbrwn$git_branch$txtrst:$cblue$git_path$txtrst"
 	else
-		echo " $bldblue\W$txtrst"
+		echo " $cblue\W$txtrst"
 		return 0
 	fi
 }
