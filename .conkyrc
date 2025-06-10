@@ -1,108 +1,57 @@
 conky.config = {
--- set to yes if you want Conky to be forked in the background
---background yes
-
 	cpu_avg_samples = 2,
 	net_avg_samples = 2,
 
-	out_to_console = false,
-
--- Use Xft?
+	-- Fonts
 	use_xft = true,
+	font = 'Noto Sans:bold:size=7',
+	xftalpha = 1,
 
--- Xft font when Xft is enabled
-	font = 'Sans:bold:size=7',
-
--- Text alpha when using Xft
-	xftalpha = 0.8,
-
-
+	-- KDE
 	own_window = true,
 	own_window_transparent = true,
--- kde5:
 	own_window_type = 'dock',
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	own_window_argb_visual = true,
-	own_window_argb_value = 100,
-	gap_y = 0,
+	own_window_argb_value = 200,
 
---own_window yes
---own_window_type dock
---own_window_transparent yes
-
---own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-
--- Create own window instead of drawing to desktop.
---own_window yes
---own_window_transparent yes
---own_window_type dock
---own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-
--- Update interval in seconds
 	update_interval = 1,
 
--- Use double buffering (reduces flicker, may not work for everyone)
 	double_buffer = true,
-
--- Minimum size of text area
---minimum_size 1280 800
---minimum_size 1000 25
---maximim_size 1000 25
---maximum_height 25
---minimum_width 1000
-	minimum_width = 1366, minimum_height = 25,
-
--- Draw shades?
 	draw_shades = false,
-
--- Draw outlines?
 	draw_outline = false,
-
--- Draw borders around text
 	draw_borders = false,
 
--- Stippled borders?
---stippled_borders 2
-
--- border width
---border_width 1
-
--- Default colors and also border colors
-	default_color = 'black',
+	default_color = 'white',
 	default_shade_color = 'white',
 	default_outline_color = 'black',
 
--- Orientation
---alignment bottom_left
-	gap_x = 400,
-	gap_y = 6,
+	--alignment bottom_left
+	gap_x = 300,
+	gap_y = 3,
 
--- Add spaces to keep things from moving about?  This only affects certain objects.
+	-- Add spaces to keep things from moving about? This only affects certain objects.
 	use_spacer = 'left',
 
--- Subtract file system buffers from used memory?
+	-- Subtract file system buffers from used memory?
 	no_buffers = true,
 
--- set to yes if you want all text to be in uppercase
-	uppercase = false,
-
--- drawn 1 pixel border around graphs or not
+	-- Drawn 1 pixel border around graphs or not
 	draw_graph_borders = true,
 };
 
 conky.text = [[
-${color FFFFFF}
-${goto 0}CPU: ${goto 45}${cpu}%${goto 80}${cpubar 8,100}\
-${goto 200}RAM: ${goto 245}${memperc}%${goto 280}${membar 8,100}\
-${goto 400}BAT: ${goto 435}${battery_percent}%${goto 485}${battery_bar 8,100}\
-${goto 605}WI-FI: ${goto 640}${wireless_link_qual_perc wlan0}%${goto 695}${wireless_link_bar 8,100 wlan0}\
-${goto 840}[ wlan0: ${goto 880}D:${downspeed wlan0} ${goto 940}U:${upspeed wlan0} ${goto 1000}${addr wlan0} ]\
-${goto 1090} [ GW: ${gw_iface}  -->  ${gw_ip} ]
+${goto 0}CPU: ${goto 40}${cpu}%${goto 80}${cpubar 8,100}\
+${goto 200}RAM: ${goto 240}${memperc}%${goto 280}${membar 8,100}\
+${goto 400}BAT: ${goto 440}${battery_percent BAT1}%${goto 480}${battery_bar 8,100 BAT1}\
+${goto 600}WI-FI: ${goto 640}${wireless_link_qual_perc wlan0}%${goto 680}${wireless_link_bar 8,100 wlan0}\
+${goto 800}[ wlan0: ${goto 850}D:${downspeed wlan0} ${goto 910}U:${upspeed wlan0} ${goto 970}${addr wlan0} ]\
+${goto 1060} [ GW: ${gw_iface}  >  ${gw_ip} ]
 \
-${goto 0}P/R: ${goto 35}${processes} ${running_processes}\
-${goto 80}${loadavg 1}   --   ${loadavg 2}   --   ${loadavg 3}\
-${goto 200}HDD: ${goto 235}${diskio}${goto 280}${diskiograph 8,100 FFFFFF FFFFFF}\
-${goto 485}[  ${battery_time}  ]\
-${goto 695}[  ${wireless_essid wlan0}  ]\
-${goto 840}[ eth0: ${goto 880}D:${downspeed eth0} ${goto 940}U:${upspeed eth0} ${goto 1000}${addr eth0} ]
+${goto 0}P/R: ${goto 30}${processes} ${running_processes}\
+${goto 85}${loadavg 1}  •  ${loadavg 2}  •  ${loadavg 3}\
+${goto 200}HDD: ${goto 232}${diskio}${goto 280}${diskiograph 8,100 FFFFFF FFFFFF}\
+${goto 480}[  ${battery_time BAT1}  ]\
+${goto 680}[  ${wireless_essid wlan0}  ]\
+${goto 800}[ eth0: ${goto 850}D:${downspeed eth0} ${goto 910}U:${upspeed eth0} ${goto 970}${addr eth0} ]
 ]];
