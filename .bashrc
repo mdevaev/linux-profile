@@ -3,9 +3,6 @@ export PAGER=less
 which chromium >/dev/null 2>&1 && export BROWSER=chromium
 
 
-export QT_QPA_PLATFORMTHEME=qt5ct
-
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
